@@ -38,3 +38,13 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+tasks.bootJar { enabled = false}
+// 기본 옵션 : enabled = true => common 모듈은 다른 모듈에서 참조하는 모듈이라 실행가능한 jar 파일을 만들 필요가 없음
+// true 로 gradle을 빌드할 시 main 함수를 찾게되는데 없어서 에러남
+// xxx.jar
+tasks.jar {enabled = true}
+// xxx-plane.jar : dependency 를 가지고 있지 않음 클래스와 리소스만 포함하고 있기에 서버를 실행시킬 수가 없게됨
+
+
+
