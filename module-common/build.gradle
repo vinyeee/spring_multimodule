@@ -38,3 +38,14 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+// bootJar 작업을 비활성화 - common 쪽에서는 spring boot jar 실행파일이 만들어질 필요가 없음
+tasks.bootJar{
+	enabled = false
+}
+// 일반 자바 라이브러리 jar 파일은 생성
+tasks.jar{
+	enabled = true
+}
+
+// ./gradlew clean :module-api:buildNeeded --stacktrace --info --refresh-dependencies -x test
